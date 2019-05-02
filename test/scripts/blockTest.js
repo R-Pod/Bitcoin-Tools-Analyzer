@@ -2,9 +2,12 @@ const { expect, assert } = require('chai')
 const block = require('../../scripts/block')
 const bhash = require('../../hashs.json')
 
-var b1 = block.fromBuffer(bhash.blocks[1])
-
+// assign a block hash from hashs.json to buff
 let buff = bhash.blocks[0]
+
+// create an instance of Block with buff
+var b1 = block.fromBuffer(buff)
+
 
 describe('BlockTest :', function() {
     describe('run function should pass', function() {
