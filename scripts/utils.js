@@ -41,13 +41,14 @@ function hexleToHex(hexle) {
 }
 
 function varIntToDec(arr, offset) {
-    offset = offset || 0x00
+    offset = offset || 0
 
     const _t = (typeof(arr) === 'string') ? 2 : 1 // un hexadecimal prend 2 octets dans un String
 
     const vi_sz = 1
     const varInt = hexToDec(arr.slice( (offset) * _t , (offset + vi_sz) * _t))
 
+    let vi  // must be undefined
     switch (varInt) {
         case 0xFD:
             vi = arr.slice( (offset + vi_sz) * _t , (offset + vi_sz + 2) * _t)
@@ -63,7 +64,7 @@ function varIntToDec(arr, offset) {
     }
 
     if (typeof(vi) === 'object') {
-        let hex = String()
+        let hex = ""
 
         for (let v of vi) {
             hex += decToHex( v )

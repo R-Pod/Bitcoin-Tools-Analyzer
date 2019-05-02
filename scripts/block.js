@@ -36,7 +36,7 @@ const o_txc_s = 5
 const o_txc_e = o_txc_b + o_txc_s
 
 function extract (buffer, begin, end) {
-    const _t = typeof buffer === 'string' ? (2) : (1)
+    const _t = typeof buffer === 'string' ? 2 : 1
 
     return buffer.slice(begin * _t, end * _t)
 }
