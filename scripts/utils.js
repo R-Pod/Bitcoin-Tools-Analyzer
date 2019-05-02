@@ -21,11 +21,17 @@ function decToHex(dec) {
 }
 
 function hexleToHex(hexle) {
+    if (typeof(hexle) === 'object') {
+        return hexle.reverse()
+    }
+
     if (typeof(hexle) !== 'string') {
         hexle = hexle.toString(16)
     }
+
     if (hexle.length % 2 == 1) {
         hexle = '0' + hexle
+    
     }
     let hex = new Array(hexle.length / 2)
 

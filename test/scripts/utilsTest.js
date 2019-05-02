@@ -19,8 +19,18 @@ describe('Utils :', function() {
     })
 
     describe('Convert hexadecimal little endian to big endian', function() {
-        it('should swap A0BC to BCA0', function() {
-            assert.equal(utils.hexleToHex('A0BC'), 'BCA0')
+        it('should swap A0BCEF to EFBCA0', function() {
+            assert.equal(utils.hexleToHex('A0BCEF'), 'EFBCA0')
+        })
+        it('should swap [0xA0,0xBC,0xDE] to [0xDE,0xBC,0xA0]', function() {
+            let notexpect = new Uint8Array([0xA0,0xBC,0xDE])
+            let result = Array.from(utils.hexleToHex(notexpect))
+            let expected = Array.from(new Uint8Array([0xDE,0xBC,0xA0]))
+            assert.sameOrderedMembers(result, expected)
+        })
+        it('the Uint8Array [0xFF,0x00] should be an object', function() {
+            let result = utils.hexleToHex(new Uint8Array([0xFF, 0x00]))
+            assert.equal(typeof(result), 'object')
         })
     })
 
