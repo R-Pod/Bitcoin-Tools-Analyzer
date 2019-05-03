@@ -1,3 +1,4 @@
+const transaction = require('./transaction.js')
 const utils = require('./utils.js')
 
 //offsets version
@@ -32,7 +33,7 @@ const o_n_e = o_n_b + o_n_s
 
 //offsets transaction counts
 const o_txc_b = o_b_e
-const o_txc_s = 5
+const o_txc_s = 1
 const o_txc_e = o_txc_b + o_txc_s
 
 function extract (buffer, begin, end) {
@@ -107,6 +108,7 @@ function Block( buffer ) {
     this._b = bitsField(this._buffer)
     this._n = nonce(this._buffer)
     this._txc = txCount(this._buffer)
+    this._txs = new Array( this._txc )
 }
 
 Block.prototype.show = function () {
@@ -119,7 +121,8 @@ Block.prototype.show = function () {
         timestamp: this._ut,
         bits: this._b,
         nonce: this._n,
-        tx_cnt: this._txc
+        tx_cnt: this._txc,
+        txs: Array.from( this._txs )
     }
 }
 
