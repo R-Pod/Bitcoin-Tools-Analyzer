@@ -1,5 +1,5 @@
 {
-  "name": "BTA",
+  "name": "(Defi.1)",
   "version": "0.0.1",
   "description": "Bitcoin-Tools-Analyzer",
   "main": "index.js",
@@ -7,10 +7,13 @@
     "test": "mocha test/scripts/"
   },
   "keywords": [],
-  "author": "Radoslaw and XaerielOmega",
+  "author": "Radoslaw",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.1.4"
+  },
+  "dependencies": {
+    "commander": "^2.20.0"
   }
 }
