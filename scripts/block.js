@@ -108,7 +108,7 @@ function Block( buffer ) {
     this._b = bitsField(this._buffer)
     this._n = nonce(this._buffer)
     this._txc = txCount(this._buffer)
-    this._txs = new Array( this._txc )
+    this._txs = []
 }
 
 Block.prototype.show = function () {
@@ -122,7 +122,7 @@ Block.prototype.show = function () {
         bits: this._b,
         nonce: this._n,
         tx_cnt: this._txc,
-        txs: Array.from( this._txs )
+        txs: this._txs 
     }
 }
 

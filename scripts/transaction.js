@@ -23,7 +23,7 @@ const o_w_b = o_txo_e
 const o_w_s = 1
 const o_w_e = o_v_b + o_v_s
 
-const o_t_b = o
+const o_t_b = o_w_e
 const o_t_s = 4
 const o_t_e = o_t_b + o_t_s
 
@@ -49,7 +49,7 @@ function flag(buffer) {
     return utils.hexleToHex(_b)
 }
 
-function txinCnt(buffer) {
+function txinCount(buffer) {
     if (!buffer) throw new Error('Buffer is missing')
 
     let _b = extract(buffer, o_txi_b, o_txi_e)
@@ -57,7 +57,7 @@ function txinCnt(buffer) {
     return utils.decToHex(utils.varIntToDec(_b))
 }
 
-function txoutCnt(buffer) {
+function txoutCount(buffer) {
     if (!buffer) throw new Error('Buffer is missing')
 
     let _b = extract(buffer, o_txo_b, o_txo_e)

@@ -5,7 +5,7 @@ const o_v_b = 0
 const o_v_s = 8
 const o_v_e = o_v_b + o_v_s
 
-const o_sc_b = o_pi_e
+const o_sc_b = o_v_e
 const o_sc_s = 1
 const o_sc_e = o_sc_b + o_sc_s
 
