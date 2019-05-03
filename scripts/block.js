@@ -1,4 +1,3 @@
-const transaction = require('./transaction.js')
 const utils = require('./utils.js')
 
 //offsets version
@@ -105,8 +104,6 @@ function txExtract(buff, cnt) {
     let cur = o_txc_b + vi_sz
 
     txs = extract(buff, cur, buff.length >> 1)
-
-    let o = { buffer: txs, count: cnt }
 
     return txs
 }

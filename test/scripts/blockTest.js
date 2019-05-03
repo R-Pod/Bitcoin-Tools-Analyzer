@@ -1,6 +1,6 @@
 const { expect, assert } = require('chai')
 const block = require('../../scripts/block')
-const bhash = require('../../hashs.json')
+const bhash = require('./hashs.json')
 
 // assign a block hash from hashs.json to buff
 let buff = bhash.blocks[0]
@@ -9,7 +9,7 @@ let buff = bhash.blocks[0]
 var b1 = block.fromBuffer(buff)
 console.log('b1 ', b1)
 
-describe('BlockTest :', function() {
+describe('Block:', function() {
     describe('run function should pass', function() {
         it('Test work', function() {
             assert.equal(block.run(), 'run')
