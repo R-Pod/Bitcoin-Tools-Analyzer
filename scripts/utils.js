@@ -1,4 +1,3 @@
-
 function strSplit(arr, str, cnt) {
     for (let index = 0; index < str.length; index += cnt) {
         arr[index/cnt] = str.slice(index, index + cnt) 
@@ -77,6 +76,12 @@ function varIntToDec(arr, offset) {
     return hexToDec(vi)
 }
 
+function varIntSize( vInt ) {
+    return ( vInt == 0xFF ? 8
+            :vInt == 0xFE ? 4
+            :vInt == 0xFD ? 2 : 0 ) + 1
+}
+
 //Champ Bits -> Cible correspondante
 //Cible -> Difficulté
 
@@ -84,5 +89,6 @@ module.exports = {
     decToHex: decToHex,
     hexToDec: hexToDec,
     hexleToHex: hexleToHex,
-    varIntToDec: varIntToDec
+    varIntToDec: varIntToDec,
+    varIntSize: varIntSize
 }

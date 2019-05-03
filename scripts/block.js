@@ -98,6 +98,18 @@ function txCount(buffer) {
     return utils.decToHex(utils.varIntToDec(_b))
 }
 
+function txExtract(buff, cnt) {
+    let txs = ""
+
+    let vi_sz = utils.varIntSize( cnt ) 
+    let cur = o_txc_b + vi_sz
+
+    txs = extract(buff, cur, buff.length >> 1)
+
+    let o = { buffer: txs, count: cnt }
+
+    return txs
+}
 function Block( buffer ) {
     this._buffer = buffer || null
 
@@ -108,7 +120,8 @@ function Block( buffer ) {
     this._b = bitsField(this._buffer)
     this._n = nonce(this._buffer)
     this._txc = txCount(this._buffer)
-    this._txs = []
+    this._txs = this._txc > 0 ? txExtract(this._buffer, this._txc) : []
+
 }
 
 Block.prototype.show = function () {
