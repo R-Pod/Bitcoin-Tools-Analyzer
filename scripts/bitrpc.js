@@ -7,21 +7,18 @@ const client = new Client({
 });
 
 
-function getTransaction(tx_h) {
-    //client.getBlockchainInfo().then(function(help){console.log(help)});
-    //client.getBlock('56ecfb97c956ae3927bd8704491c84f7c21e75e60fa1d7b82925d1f66e918103').then(function(log){console.log(log)})
-    client.getRawTransaction('96849f62696ba30e23189381240ebbce72717278c2b349fe1454890868d667f0', 1).then((help) => console.log(help))
-    //client.getBlockchainInfo().then((help) => console.log(help));
+function getTransaction(transaction_hash, callback) {
+    client.getRawTransaction(transaction_hash)
+        .then(callback)
 }
 
-function getBlock(callback) {
-    client.getBestBlockHash().then(function (block) { 
-        client.getBlockByHash(block, { extension: 'hex'})
+function getBlock(block_hash, callback) {
+    client.getBlockByHash(block_hash, { extension: 'hex'})
         .then(callback)
-    })
 }
 
 module.exports={
+    getTransaction: getTransaction
     getBlock: getBlock
 }
 
