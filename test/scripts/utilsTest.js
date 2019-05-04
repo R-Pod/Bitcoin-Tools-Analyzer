@@ -6,7 +6,13 @@ const arr1 = new Uint8Array([0xFD,0x00,0x10])
 const arr2 = String('FE00000001')
 
 describe('Utils :', function() {
-    describe('Convert decimal to hexadecmal', function() {
+    describe('Convert decimal (string) to hexadecmal (string)', function() {
+        it('should convert \'4094\' to ffe', function() {
+            assert.equal(utils.decToHex('4094'), 'ffe')
+        })
+    })
+
+    describe('Convert decimal (number) to hexadecmal (string)', function() {
         it('should convert 4094 to ffe', function() {
             assert.equal(utils.decToHex(4094), 'ffe')
         })

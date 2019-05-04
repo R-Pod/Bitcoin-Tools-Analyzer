@@ -12,7 +12,12 @@ function hexToDec(hex) {
 }
 
 function decToHex(dec) {
+    if (typeof(dec) === 'string') {
+        dec = Number(dec) 
+    }
+
     let hex = dec.toString(16)
+
     if (dec.length % 2 == 1) {
         hex = '0' + hex
     }
