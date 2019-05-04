@@ -14,13 +14,14 @@ function getTransaction(tx_h) {
     //client.getBlockchainInfo().then((help) => console.log(help));
 }
 
-function getBlock() {
-    //let block = "" 
+function getBlock(callback) {
     client.getBestBlockHash().then(function (block) { 
         client.getBlockByHash(block, { extension: 'hex'})
+        .then(callback)
     })
 }
 
 module.exports={
     getBlock: getBlock
 }
+
