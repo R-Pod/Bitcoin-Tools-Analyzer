@@ -18,7 +18,7 @@ function getBlock(block_hash, callback) {
 }
 
 module.exports={
-    getTransaction: getTransaction
+    getTransaction: getTransaction,
     getBlock: getBlock
 }
 

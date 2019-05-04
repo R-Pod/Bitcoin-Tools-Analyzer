@@ -7,7 +7,7 @@ let buff = bhash.blocks[0]
 
 // create an instance of Block with buff
 var b1 = block.fromBuffer(buff)
-console.log('b1 ', b1)
+
 
 describe('Block:', function() {
     describe('run function should pass', function() {
