@@ -1,3 +1,10 @@
+console.log('=========================================================================')
+console.log('=== (B)itcoin (T)ool (A)nalyzer (Defi 1 version CLI) -- version 0.0.1 ===')
+console.log('=========================================================================')
+console.log('============  L I O N E L  == A N D ==  R A D O S L A W  ================')
+console.log('=========================================================================')
+console.log()
+
 const program = require('commander')
 const rpc = require('./scripts/bitrpc')
 
@@ -51,3 +58,6 @@ commands.forEach( function( element ) {
 })
 
 program.parse(process.argv)
+
+console.log()
+console.log()

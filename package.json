@@ -2,12 +2,12 @@
   "name": "(Defi.1)",
   "version": "0.0.1",
   "description": "Bitcoin-Tools-Analyzer",
-  "main": "index.js",
+  "main": "bta.js",
   "scripts": {
     "test": "mocha test/scripts/"
   },
   "keywords": [],
-  "author": "Radoslaw",
+  "author": "Radoslaw and Lionel",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
